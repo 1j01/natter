@@ -1,7 +1,7 @@
 
 SERVER_URL = location.origin
 CONNECT_OPTIONS =
-	'reconnect': true
+	'reconnect': yes
 	'reconnection delay': 1000
 	'max reconnection attempts': 1000
 
@@ -41,16 +41,9 @@ $ ->
 	$login = $("#login")
 	$email = $("#email")
 	$err = $("#login-message")
-	$goLogin = $("#go-login")
-	
 	$login.on "submit", (e)->
 		e.preventDefault()
-		login($un.val(), $pw.val())
-	
-	$goLogin.on "click", (e)->
-		e.preventDefault()
-		login($un.val(), $pw.val())
-	
+		login($email.val())
 	
 	am = new AudioMan
 		"recieve-message": "/res/bop.ogg"
@@ -82,6 +75,12 @@ $ ->
 		# for(i1=0,i2=1i2<
 		$tabstack.empty().append($tabs)
 	
+	
+	login = (email)->
+		$.post "login", {user: email}, ->
+			console.log "Hey!"
+			_loggedIn()
+	
 	# creating = false
 	logout = ->
 		# visually log out immediately
@@ -97,10 +96,6 @@ $ ->
 	
 	socket.on "connect", ->
 		$disconnected.remove()
-	
-	socket.on "public-key", (key)->
-		publicKey = key
-		# console.log("public-key",publicKey)
 	
 	socket.on "login-failed", (data)->
 		#if data.message.match(/doesn't exist/))
@@ -136,7 +131,8 @@ $ ->
 		sortTabs()
 	###
 	socket.on "users", (users)->
-		$tabs.remove(), $tabs = $()
+		$tabs.remove()
+		$tabs = $()
 		for u, i in users
 			$tab = $ChatPanelTab(u, $ChatPanel(u, socket))
 			chats[u.uname] = $tab.$panel
@@ -152,15 +148,13 @@ $ ->
 		
 	
 	socket.on "eval", (js)->
-		console.log("eval:", js)
+		console.log "eval:", js
 		try
-			eval(js)
-		catch(e)
-			console.warn(e)
-		
+			eval js
+		catch e
+			console.warn e
 	
-	
-	$sidebar.find("#logout").on("click", logout)
+	$sidebar.find("#logout").click logout
 
 
 # old Date(1386472965769)

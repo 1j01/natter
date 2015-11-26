@@ -122,6 +122,13 @@ body {
 	vertical-align: middle;
 	text-align: center;
 }
+#login > :first-child {
+	margin-top: 40vh;
+}
+#login > * {
+	width: 15em;
+	box-sizing: border-box;
+}
 #login input[type="submit"] {
 	/*display: none;*/
 }

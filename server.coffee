@@ -9,7 +9,7 @@ Console commands:
 > :alert "eval"
 ###
 
-console.log "Chat Server v0.0.1.1"
+console.log "Natter Server v#{(require "./package").version}"
 
 ip = process.env.OPENSHIFT_NODEJS_IP ? process.env.IP ? "127.0.0.1"
 port = process.env.OPENSHIFT_NODEJS_PORT ? process.env.PORT ? 8080
@@ -27,12 +27,14 @@ path = require 'path'
 http = require 'http'
 express = require 'express'
 session = require 'express-session'
+parser = require 'body-parser'
 directory = require 'connect-directory'
 extensionless = require 'extensionless'
 
 # Require passwordless authentication stuff
 passwordless = require 'passwordless'
 MongoStore = require 'passwordless-mongostore'
+MemoryStore = require 'passwordless-memorystore'
 email = require 'emailjs'
 
 # Get password / secret
@@ -48,45 +50,33 @@ try password = fs.readFileSync '.password', 'utf-8'
 fs.writeFileSync '.secret', secret, 'utf-8'
 fs.writeFileSync '.password', password, 'utf-8'
 
-
-passwordless.init new MongoStore 'mongodb://localhost/passwordless-simple-mail'
+passwordless.init new MemoryStore
+# passwordless.init new MongoStore 'mongodb://localhost/passwordless-simple-mail'
 
 smtpServer = email.server.connect
-	user: "confabulateml"
+	user: "natter.ml.login"
 	password: password
 	host: "smtp.gmail.com"
 	ssl: yes
 
 passwordless.addDelivery (tokenToSend, uidToSend, recipient, callback)->
 	
-	url = "http://#{host}?token=#{tokenToSend}&uid=#{encodeURIComponent(uidToSend)}"
-	
-	url = "http://#{host}?" + qss
-		token: tokenToSend
-		uid: uidToSend
-	
 	url = "http://#{host}?#{qss
 		token: tokenToSend
 		uid: uidToSend
 	}"
 	
-	url = "http://" + host + "?" + qss
-		token: tokenToSend
-		uid: uidToSend
-	
-	
-	message = 
-		from: "confabulate.ml <confabulateml@gmail.com>"
+	message =
+		from: "natter.ml <natter.ml.login@gmail.com>"
 		to: "You <#{recipient}>"
-		subject: "Authenticate #{host}"
+		subject: "Login to Natter"
 		text: """
-			Hello, you... person!
+			Hello!
 			Access your account here:
 			#{url}
-		"""
+		""" # @TODO: big login button
 	
 	smtpServer.send message, (err, message)->
-		
 		if err
 			console.log(err)
 			console.log(err.previous?.smtp)
@@ -94,69 +84,44 @@ passwordless.addDelivery (tokenToSend, uidToSend, recipient, callback)->
 		callback(err)
 
 
-pub = __dirname + '/public'
+pub = "#{__dirname}/public"
 
 app = express()
-app.use session {secret}
+app.use parser.urlencoded extended: no
+app.use session {secret, resave: no, saveUninitialized: no}
 app.use passwordless.sessionSupport()
 app.use passwordless.acceptToken()
 
-app.use extensionless(pub, ["html","png","svg","gif"])
-app.use express.static(pub)
-app.get '/emotes-list', (req, res)->
-	walker = walk './public/res/emotes'
+app.use extensionless pub, ["html", "png", "svg", "gif"]
+app.use express.static pub
+app.get "/emotes-list", (req, res)->
+	walker = walk "./public/res/emotes"
 	emotes = []
-	walker.on 'file', (dir, stat, next)->
-		res.write(path.join(dir.replace("./public",""), stat.name)+'\n')
+	walker.on "file", (dir, stat, next)->
+		file_path = path.join dir.replace("./public", ""), stat.name
+		res.write "#{file_path}\n"
 		next()
 	
-	walker.on 'end', ->
+	walker.on "end", ->
 		res.end """
 			http://i3.kym-cdn.com/photos/images/original/000/150/330/omnomnomnom.gif
 			http://31.media.tumblr.com/tumblr_lgyexi5xvo1qhofrso1_500.gif
 		"""
 
-app.get '/logout', passwordless.logout(), (req, res)->
-	res.redirect '/'
+app.get "/logout", passwordless.logout(), (req, res)->
+	res.redirect "/"
+
+app.post "/login", passwordless.requestToken (user, delivery, callback, req)->
+	callback null, user
 
 
 
-app.use directory(pub)
+app.use directory pub
 app.use express.errorHandler()
 
-server = http.Server(app)
-server.listen(port, ip)
+server = http.Server app
+server.listen port, ip
 
 console.log "Server started at #{host}"
 
 io = (require 'socket.io')(server)
-
-###
-
-message =
-	from: "confabulate.ml <confabulate.ml@gmail.com>"
-	to: "You <isaiahodhner@gmail.com>"
-	subject: "Authenticate to Confabulate"
-	text: """
-		Hello, 1j01!
-		Access your account here:
-		http://#{host}?#{qss
-			token: 776597658756
-			uid: 32565
-		}
-	"""
-
-smtpServer.send message, (err, message)->
-	
-	if err
-		console.log err
-		erres = (''+err.previous?.smtp).replace /([\n\r]+)?534[- ]5.7.14 ?/gm, ''
-		url = (erres.match /<(.*)>/)[1]
-		console.log '\n'
-		console.log erres.replace url, 'SEE URL BELOW'
-		console.log url
-		(require 'child_process').exec "explorer \"#{url}\""#weirdhax
-	else
-		console.log ';)'
-
-###

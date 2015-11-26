@@ -2,11 +2,12 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Chat</title>
+		<title>Natter</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<script src="https://cdn.socket.io/socket.io-1.0.4.js"></script>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script src="/socket.io/socket.io.js"></script>
+		<script src="lib/jquery-2.1.4.min.js"></script>
 		<script src="lib/space-pen.js"></script>
+		<script src="lib/coffee-script.js"></script>
 		
 		<!-- Utilities -->
 		<script src="utils.js"></script>
@@ -23,8 +24,8 @@
 		<link rel="stylesheet" href="app.css">
 	</head>
 	<body class="not-loaded not-logged-in">
-		<form id="login" action="login">
-			<input id="email" placeholder="email" name="email" type="text" autofocus/><br>
+		<form id="login" action="login" method="post">
+			<input id="email" placeholder="Email" name="email" type="text" autofocus/><br>
 			<input id="go" type="submit" value="Login / Create Account"/>
 			<div id="login-message"></div>
 		</form>
@@ -32,7 +33,7 @@
 		<footer>
 			This is <a href="https://wikipedia.org/wiki/Vacuous_truth" title="and I mean literally literally as well" target="_blank">LITERALLY</a>
 			the world's BEST most AWESOME chat application<br class="misleading">
-			being made by <a href="http://1j01.handcraft.com" target="_blank">Isaiah Odhner</a>
+			being made by <a href="http://isaiahodhner.ml/" target="_blank">Isaiah Odhner</a>
 			with <a href="http://nodejs.org/" target="_blank">node.js</a>
 			and <a href="http://socket.io/" target="_blank">socket.io</a>.
 		</footer>

@@ -4,8 +4,8 @@
 		<meta charset="utf-8">
 		<title>Testing</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<script src="//chat-56441.use1.actionbox.io:2998/socket.io/socket.io.js"></script>
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script src="/socket.io/socket.io.js"></script>
+		<script src="../lib/jquery-2.1.4.min.js"></script>
 		<script>(function(a,$e){a=[];
 			onerror=function(e){a.push(e);$e&&$e.appendTo("body").html(a.join("<br/><br/>"));};
 			$(function(){$e=$e||$("<div/>").css({
@@ -13,11 +13,11 @@
 				background:"rgba(0,0,0,0.5)",color:"#FFF",textShadow:"0 0 5px #F00",fontFamily:"monospace",fontSize:"1.5em"
 			});});
 		})();</script>
-		<script src="/utils.js"></script> <!-- Utilities.. -->
-		<script src="/lib/sha512.js"></script>
-		<script src="/avastar.js"></script> <!-- Widgets... -->
-		<script src="/widgets.js"></script>
-		<script src="/message.js"></script>
+		<script src="../lib/sha512.js"></script>
+		<script src="../utils.js"></script>
+		<script src="../avastar.js"></script>
+		<script src="../widgets.js"></script>
+		<script src="../message.js"></script>
 		<script>
 			$(function(){
 				var $r = $("body");
