@@ -1,0 +1,40 @@
+{
+  "name": "chat",
+  "version": "0.0.1",
+  "description": "A Chat Application",
+  "keywords": [
+    "chat",
+    "im",
+    "application"
+  ],
+  "author": {
+    "name": "Isaiah Odhner",
+    "email": "isaiahodhner@gmail.com",
+    "url": "isaiahodhner.ml"
+  },
+  "homepage": "http://confabulate.ml/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/openshift/origin-server"
+  },
+
+  "engines": {
+    "node": ">= 0.10.0",
+    "npm": ">= 1.0.0"
+  },
+
+  "dependencies": {
+    "express": "~3.4.4",
+    "socket.io": "*",
+    "walk": "*"
+  },
+  "devDependencies": {},
+  "bundleDependencies": [
+    "cleverbot",
+    "connect-directory",
+    "extensionless"
+  ],
+
+  "private": true,
+  "main": "server.js"
+}

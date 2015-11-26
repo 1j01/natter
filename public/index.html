@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Chat</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<script src="https://cdn.socket.io/socket.io-1.0.4.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		
+		<!-- Fancy Error Notifications -->
+		<script>(function(a,$e){a=[];onerror=function(e){a.push(e);$e&&$e.appendTo("body").html(a.join("<br/><br/>"));};
+			$(function(){$e=$e||$("<div/>").css({
+				position:"absolute",left:0,right:0,top:0,bottom:0,margin:"auto",
+				background:"rgba(0,0,0,0.5)",color:"#FFF",textShadow:"0 0 5px #F00",fontFamily:"monospace",fontSize:"1.5em"
+			});});
+		})();</script>
+		
+		<!-- Utilities.. -->
+		<script src="utils.js"></script>
+		<script src="dnd.js"></script>
+		<script src="lib/sha512.js"></script>
+		<!-- Widgets... -->
+		<script src="avastar.js"></script>
+		<script src="widgets.js"></script>
+		<script src="message.js"></script>
+		<!-- Client Main. -->
+		<script src="client.js"></script>
+		<!-- Konami Code. -->
+		<script src="kc.js" async></script>
+		
+		<link rel="stylesheet" href="lib/reset.css">
+		<link rel="stylesheet" href="app.css">
+	</head>
+	<body class="not-loaded not-logged-in">
+		<div id="logins">
+			<form id="login" action="login" target="dummy">
+				<h3>Login / Create Account</h3>
+				<input id="username" placeholder="username" name="username" type="text" autofocus/><br>
+				<input id="password" placeholder="password" name="password" type="password"/><br>
+				<input id="go-login" type="submit" value="Login"/>
+				<input id="go-create-account" type="submit" value="Create Account"/>
+				<BR/><BR/><button id="go-bypass" style='font-family:monospace;font-stretch:condensed;font-size:1.3em;'>BYPASS</button> <a href="uhhhhhhhhh">Recover Account</a>
+				<div id="login-error"></div>
+			</form>
+			<iframe name="dummy" src="about:blank" style="display:none"></iframe>
+		</div>
+		<div id="app"></div>
+		<footer>
+			This is <a href="https://wikipedia.org/wiki/Vacuous_truth" title="and I mean literally literally as well" target="_blank">LITERALLY</a>
+			the world's BEST most AWESOME chat application<br class="misleading">
+			being made by <a href="http://1j01.handcraft.com" target="_blank">Isaiah Odhner</a>
+			with <a href="http://nodejs.org/" target="_blank">node.js</a>
+			and <a href="http://socket.io/" target="_blank">socket.io</a>.
+		</footer>
+		<div id="notifications"></div>
+	</body>
+</html>

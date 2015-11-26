@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Testing</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<script src="//chat-56441.use1.actionbox.io:2998/socket.io/socket.io.js"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script>(function(a,$e){a=[];
+			onerror=function(e){a.push(e);$e&&$e.appendTo("body").html(a.join("<br/><br/>"));};
+			$(function(){$e=$e||$("<div/>").css({
+				position:"absolute",left:0,right:0,top:0,bottom:0,margin:"auto",
+				background:"rgba(0,0,0,0.5)",color:"#FFF",textShadow:"0 0 5px #F00",fontFamily:"monospace",fontSize:"1.5em"
+			});});
+		})();</script>
+		<script src="/utils.js"></script> <!-- Utilities.. -->
+		<script src="/lib/sha512.js"></script>
+		<script src="/avastar.js"></script> <!-- Widgets... -->
+		<script src="/widgets.js"></script>
+		<script src="/message.js"></script>
+		<script>
+			$(function(){
+				var $r = $("body");
+				$r.append(
+					$("<test><h1>Messages</h1></test>")
+					.append($MessageRow().append($Message("testing testing 123 <emote e='simple/happy'/>")))
+					.append($MessageRow().append($Message("testing <i>test<b>ing</b> 1</i>23 <emote e='simple/cool'/>")))
+					.append($MessageRow().append($Message(">:( = <emote e='simple/angry'/>")))
+					.append($MessageRow().append($Message("<youtube vid='KZIsW7is01g'/>")))
+					.append($MessageRow().append($Message("<vimeo vid='82090537'/>")))
+				);
+			});
+		</script>
+		<link rel="stylesheet" href="/lib/reset.css">
+		<link rel="stylesheet" href="/app.css">
+		<style>
+			h1 {
+				font-size: 2em;
+				margin-bottom: 0.4em;
+			}
+			body {
+				padding: 15px;
+			}
+		</style>
+	</head>
+	<body></body>
+</html>

@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Avastars</title>
+		<script src="/lib/sha512.js"></script>
+		<script src="/avastar.js"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<style>
+			body {
+				background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAfElEQVQYV2Osqqr6z4AGREVF0YUYGJEVfvnyBaxAUVERrlBERATMZszLy8Mw0dTUFNNEdIU8PDwMIKthJsF0oFgNE4S5Eab4zZs3DIz9/f0YVr9+/RrT6sWLF4MVgnTBwP3793ErRJY5ffo06QpBngMHD8iNyD4EOQGbGwEHxDT046bgNgAAAABJRU5ErkJggg==") repeat;
+			}
+			input {
+				background: rgba(255,255,255,0.5);
+				border: 1px inset;
+			}
+			.container {
+				border-bottom: 5px dashed rgba(0,0,0,0.5);
+				padding-bottom: 15px;
+			}
+		</style>
+	</head>
+	<body>
+		<script>
+			for(var i=0; i<10; i++){
+				(function(i){
+					var seed = i?(Math.random()*50):"Change me!";
+					var size = Math.random()*200+150;
+					var sides = 5;
+					
+					var $div = $("<div class='container'/>");
+					var $ich = $("<div class='imgcontainer'/>");
+					var $inp_seed = $("<input class='seed'/>").val(seed);
+					var $inp_sides = $("<input class='sides' type='number' min=1 max=15 step=1/>").val(sides);
+					
+					$div.append($ich, $inp_seed, $inp_sides).appendTo("body");
+					
+					function update(){
+						setTimeout(function(){
+							if(seed == $inp_seed.val()
+							&& sides == $inp_sides.val() ){
+								return;
+							}
+							sides = Number($inp_sides.val());
+							seed = String($inp_seed.val());
+							var $c = $Avastar(seed, size, sides);
+							$ich.empty().append($c);
+							var $i = $("<img class='avastar'/>");
+							$i.width(size).height(size);
+							$i.on("load", function(){
+								$c.replaceWith($i);
+							});
+							$i.attr("src", $c[0].toDataURL("image/png"));
+						});
+					}
+					update();
+					$inp_seed.add($inp_sides).on("change keyup",update);
+				})(i);
+			}
+		</script>
+	</body>
+</html>
