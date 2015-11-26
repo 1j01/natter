@@ -23,7 +23,7 @@ body {
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 /* Login/App screen transitions */
-#logins, #app {
+#login, #app {
 	position: fixed;
 	bottom: 0;
 	width: 100%;
@@ -32,7 +32,7 @@ body {
 	padding: 0;
 	margin: 0;
 }
-#logins {
+#login {
 	/*-webkit-transition: all 2s ease-in-out;
 	-moz-transition: all 2s ease-in-out;
 	-o-transition: all 2s ease-in-out;
@@ -52,11 +52,11 @@ body {
 .server-down #app {
 	bottom: -100%;
 }
-.logged-in #logins, 
-.server-down #logins {
+.logged-in #login, 
+.server-down #login {
 	bottom: 200%;
 }
-.server-down #logins {
+.server-down #login {
 	opacity: 0;
 	-webkit-transform: rotate(-10deg);
 	-moz-transform: rotate(-10deg);
@@ -108,7 +108,7 @@ body {
 	vertical-align: middle;
 }
 /* Login / Create Account screen */
-#logins {
+#login {
 	background: #BF4040;
 	background: hsl(0,50%,50%);
 	color: white;
@@ -122,18 +122,18 @@ body {
 	vertical-align: middle;
 	text-align: center;
 }
-#logins input[type="submit"] {
+#login input[type="submit"] {
 	/*display: none;*/
 }
-#logins * {
+#login * {
 	padding: 5px;
 	margin: 5px;
 }
-#logins h3 {
+#login h3 {
 	color: white; /* unnecessary */
 	text-shadow: 0 0 5px black;
 }
-#login-error {
+#login-message {
 	height: 1em;
 }
 input[type="text"],
@@ -198,11 +198,11 @@ footer {
 footer a {
 	color: #FF0;
 }
-#logins a {
+#login a {
 	color: #FF0;
 	opacity: 0.8;
 }
-#logins a:hover {
+#login a:hover {
 	opacity: 1;
 }
 /* Application screen */

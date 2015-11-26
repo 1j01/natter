@@ -1,5 +1,6 @@
-It's a chat app.
-----------------
+# Confabulate
+
+## It's a chat app.
 
 Also...
 

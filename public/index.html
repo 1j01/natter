@@ -6,44 +6,28 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<script src="https://cdn.socket.io/socket.io-1.0.4.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script src="lib/space-pen.js"></script>
 		
-		<!-- Fancy Error Notifications -->
-		<script>(function(a,$e){a=[];onerror=function(e){a.push(e);$e&&$e.appendTo("body").html(a.join("<br/><br/>"));};
-			$(function(){$e=$e||$("<div/>").css({
-				position:"absolute",left:0,right:0,top:0,bottom:0,margin:"auto",
-				background:"rgba(0,0,0,0.5)",color:"#FFF",textShadow:"0 0 5px #F00",fontFamily:"monospace",fontSize:"1.5em"
-			});});
-		})();</script>
-		
-		<!-- Utilities.. -->
+		<!-- Utilities -->
 		<script src="utils.js"></script>
-		<script src="dnd.js"></script>
-		<script src="lib/sha512.js"></script>
-		<!-- Widgets... -->
+		<!-- Widgets -->
 		<script src="avastar.js"></script>
 		<script src="widgets.js"></script>
 		<script src="message.js"></script>
-		<!-- Client Main. -->
-		<script src="client.js"></script>
-		<!-- Konami Code. -->
+		<!-- Client Main -->
+		<script src="client.coffee" type="text/coffeescript"></script>
+		<!-- Konami Code + Icon Generator -->
 		<script src="kc.js" async></script>
 		
 		<link rel="stylesheet" href="lib/reset.css">
 		<link rel="stylesheet" href="app.css">
 	</head>
 	<body class="not-loaded not-logged-in">
-		<div id="logins">
-			<form id="login" action="login" target="dummy">
-				<h3>Login / Create Account</h3>
-				<input id="username" placeholder="username" name="username" type="text" autofocus/><br>
-				<input id="password" placeholder="password" name="password" type="password"/><br>
-				<input id="go-login" type="submit" value="Login"/>
-				<input id="go-create-account" type="submit" value="Create Account"/>
-				<BR/><BR/><button id="go-bypass" style='font-family:monospace;font-stretch:condensed;font-size:1.3em;'>BYPASS</button> <a href="uhhhhhhhhh">Recover Account</a>
-				<div id="login-error"></div>
-			</form>
-			<iframe name="dummy" src="about:blank" style="display:none"></iframe>
-		</div>
+		<form id="login" action="login">
+			<input id="email" placeholder="email" name="email" type="text" autofocus/><br>
+			<input id="go" type="submit" value="Login / Create Account"/>
+			<div id="login-message"></div>
+		</form>
 		<div id="app"></div>
 		<footer>
 			This is <a href="https://wikipedia.org/wiki/Vacuous_truth" title="and I mean literally literally as well" target="_blank">LITERALLY</a>
