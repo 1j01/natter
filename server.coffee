@@ -9,7 +9,7 @@ Console commands:
 > :alert "eval"
 ###
 
-console.log "Natter Server v#{(require "./package").version}"
+console.log "Natter v#{(require "./package").version} Server"
 
 ip = process.env.OPENSHIFT_NODEJS_IP ? process.env.IP ? "127.0.0.1"
 port = process.env.OPENSHIFT_NODEJS_PORT ? process.env.PORT ? 8080
@@ -29,7 +29,7 @@ express = require 'express'
 session = require 'express-session'
 parser = require 'body-parser'
 directory = require 'connect-directory'
-extensionless = require 'extensionless'
+extensionless = require 'connect-extensionless'
 
 # Require passwordless authentication stuff
 passwordless = require 'passwordless'

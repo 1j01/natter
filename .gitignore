@@ -4,7 +4,7 @@ build/*
 
 node_modules/*
 !node_modules/connect-directory/
-!node_modules/extensionless/
+!node_modules/connect-extensionless/
 !node_modules/cleverbot/
 
 .password
