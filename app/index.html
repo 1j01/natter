@@ -12,6 +12,16 @@
 		<!-- FIXME: react-script shouldn't be published and loaded as CoffeeScript -->
 		<script src="../node_modules/react-script/react-script.coffee" type="text/coffeescript"></script>
 		
+		<!-- Firebase -->
+		<script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
+		<script type="text/coffeescript">
+			firebase.initializeApp
+				apiKey: "AIzaSyCpZbiSO_mJy6nNcOL0qhIhOO-CSaCRIHo"
+				authDomain: "natter-72e98.firebaseapp.com"
+				databaseURL: "https://natter-72e98.firebaseio.com"
+				storageBucket: ""
+		</script>
+		
 		<!-- Utilities -->
 		<script type="text/coffeescript">@E = ReactScript</script>
 		<script src="AudioMan.js"></script>
@@ -25,7 +35,8 @@
 		<script src="components/ChatPanel.coffee" type="text/coffeescript"></script>
 		<script src="components/Message.coffee" type="text/coffeescript"></script>
 		<script src="components/MessageInput.coffee" type="text/coffeescript"></script>
-		<script src="components/LoginScreen.coffee" type="text/coffeescript"></script>
+		<script src="components/SignInScreen.coffee" type="text/coffeescript"></script>
+		<script src="components/UserProfile.coffee" type="text/coffeescript"></script>
 		<script src="components/App.coffee" type="text/coffeescript"></script>
 		
 		<!-- App Main -->

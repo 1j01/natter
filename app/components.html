@@ -33,7 +33,7 @@
 		<script src="components/ChatPanel.coffee" type="text/coffeescript"></script>
 		<script src="components/Message.coffee" type="text/coffeescript"></script>
 		<script src="components/MessageInput.coffee" type="text/coffeescript"></script>
-		<script src="components/LoginScreen.coffee" type="text/coffeescript"></script>
+		<script src="components/UserProfile.coffee" type="text/coffeescript"></script>
 		<script src="components/App.coffee" type="text/coffeescript"></script>
 		
 		<!-- Styling -->
@@ -99,6 +99,16 @@
 						E Avastar, seed: "what's up?", size: 128
 						E AvastarTest, defaultSeed: "Change me!"
 						E AvastarTest, defaultSeed: "Change me too!"
+					E "section",
+						E "h2", "User Profile (i.e. yours)"
+						E UserProfile, name: "John Doughburg"
+						E UserProfile, name: "Jessy Stormbringer"
+						E UserProfile, name: "Dick C. Dixie"
+						E UserProfile, name: "Katherine Outabag"
+						# these names are so dumb
+						# possibly hillariously so, but not in a clever way
+						# only in a Maryland flag sort of way
+						E UserProfile, name: "Maryland Flagpoint"
 			), document.getElementById("components-page-container")
 			
 		</script>
