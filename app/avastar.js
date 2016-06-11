@@ -1,23 +1,12 @@
 
-
-function $Avastar(seedstr, size, sides){
+function drawAvastar(ctx, seedstr, size, sides){
 	sides = sides || 5;
-	//increase the resolution
-	var s = size * 1;
-	
-	//set up the canvas
-	var $c = $("<canvas>");
-	$c[0].width = s;
-	$c[0].height = s;
-	$c.css("width", size+"px");
-	$c.css("height", size+"px");
-	var ctx = $c.get(0).getContext("2d");
 	
 	//set up the psuedo-random stuff
 	var sha = new jsSHA(seedstr+"1337"+seedstr.toUpperCase(), "TEXT");
 	var hash = sha.getHash("SHA-512", "HEX");
 	for(var i=0; i<10; i++){
-		sha = new jsSHA("s"+seedstr+"^"+seedstr.toUpperCase()+"!"+i*592.42334, "TEXT");
+		sha = new jsSHA("size"+seedstr+"^"+seedstr.toUpperCase()+"!"+i*592.42334, "TEXT");
 		hash += sha.getHash("SHA-512", "HEX");
 	}
 	var hashi = 0;
@@ -45,8 +34,8 @@ function $Avastar(seedstr, size, sides){
 	
 	//draw some shit
 	ctx.save();
-	ctx.translate(s/2,s/2);
-	ctx.scale(s/4,s/4);
+	ctx.translate(size/2,size/2);
+	ctx.scale(size/4,size/4);
 	
 	ctx.fillStyle = "rgba(155,155,155,0.5)";
 	ctx.beginPath();
@@ -124,13 +113,11 @@ function $Avastar(seedstr, size, sides){
 	
 	//debug rand()
 	/*ctx.fillStyle = "rgba(255,255,255,0.5)";
-	for(var i=0;i<s;i++){
-		ctx.fillRect(i,rand(0,s),1,1);
+	for(var i=0;i<size;i++){
+		ctx.fillRect(i,rand(0,size),1,1);
 	}
 	ctx.fillStyle = "rgba(0,0,0,1)";
-	for(var i=0;i<s*5;i++){
-		ctx.fillRect(rand(0,s)+i/5,rand(0,s)+i/5,1,1);
+	for(var i=0;i<size*5;i++){
+		ctx.fillRect(rand(0,size)+i/5,rand(0,size)+i/5,1,1);
 	}*/
-	
-	return $c;
 }

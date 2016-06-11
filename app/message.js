@@ -19,7 +19,7 @@
 		autoplay: 0,
 		modestbranding: 1,
 		theme: "light",
-		origin: "http://1j01.kd.io"
+		origin: location.origin
 	});
 	var elements = {
 		emote: function($e){

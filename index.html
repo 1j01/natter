@@ -16,6 +16,8 @@
 		<style>
 			body {
 				font-family: sans-serif;
+				padding: 1rem;
+				box-sizing: border-box;
 			}
 			.launch-app {
 				background: #2196f3;
@@ -27,7 +29,8 @@
 			}
 			h1 {
 				font-size: 2em;
-				margin: 1rem;
+				margin: 0;
+				margin-bottom: 1rem;
 			}
 			h2 {
 				font-size: 1.2em;
@@ -35,12 +38,13 @@
 			p,
 			ul,
 			ol {
-				margin: 1rem;
+				margin: 1rem 0;
 			}
 			a {
 				color: #2196f3;
 			}
 			a:not(:hover) {
+				/* TODO: consistent throughout app */
 				text-decoration: none;
 			}
 			li {
@@ -59,8 +63,7 @@
 		<ul>
 			<h2>Features:</h2>
 			<li>
-				<!-- TODO: should test/ really be in app/? -->
-				<a href="app/test/avastar.html">Avastars</a>
+				<a href="app/components.html">Avastars</a>
 			</li>
 			<li>
 				Other good stuff

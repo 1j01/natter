@@ -5,12 +5,13 @@
 Features:
 
 * Full rich text editing
-* Automatic embeds of videos from YouTube, Vimeo, and other sites, audio from SoundCloud, and even code fiddles like CodePen and JSFiddle
+* [Avastars][]: the best default avatar images around, procedurally generated based on your username
+* Paste a link to automatically embed videos from YouTube, Vimeo, and other sites, audio from SoundCloud, and even code fiddles like CodePen and JSFiddle
 * Drag and drop anything anywhere, e.g. image to avatar, image/audio/video/other file to chat or to a user
 * Easily send feedback (via chat; but don't worry you won't have to "friend"/"unfriend" Feedback or anything)
-* Evolutionary emoji menu: instead of just a grid, Natter could have a dynamic interactive map with axes representing emotional factors
+* Pick emoji from a dynamic interactive map with axes representing emotional factors, instead of just a grid
 * Upload custom emoji/gifs easily for personal use
-* [Avastars][]: the best default avatar images around, procedurally generated based on your username
+* Send hand-drawn messages
 
 ### Status
 
@@ -33,6 +34,6 @@ Everything is to be rewritten:
 [jQuery]: https://jquery.org/
 [React]: https://facebook.github.io/react/
 [Draft.js]: https://facebook.github.io/draft-js/
-[Avastars]: https://rawgit.com/1j01/natter/master/public/test/avastar.html
-[main app screen]: https://rawgit.com/1j01/natter/master/public/index.html
+[Avastars]: https://rawgit.com/1j01/natter/master/app/components.html
+[main app screen]: https://rawgit.com/1j01/natter/master/app/index.html
 

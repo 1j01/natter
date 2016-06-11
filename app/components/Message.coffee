@@ -1,4 +1,5 @@
 
 class @Message extends React.Component
 	render: ->
-		E ".message"
+		{message} = @props
+		E ".message-row", E ".message.bubble", message
