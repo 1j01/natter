@@ -3,13 +3,13 @@
 	var ELEMENT_NODE = 1;
 	var TEXT_NODE = 3;
 	
-	var $VideoEmbed = function($e, ur$l){
+	var $VideoEmbed = function($e, url_pattern){
 		var $ve = $("<iframe class='video'/>");
 		$ve.attr({
 			width: $e.attr("width") || 640,
 			height: $e.attr("height") || 480,
 			allowfullscreen: true,
-			src: ur$l.replace("$vid", encodeURIComponent($ve.attr("vid")))
+			src: url_pattern.replace("$vid", encodeURIComponent($ve.attr("vid")))
 		});
 		return $el;
 	};
@@ -35,7 +35,7 @@
 	};
 	
 	$Message = function(xmmlf){
-		//call with xmmlf (eXtensibe Message Markup Language Fragment)
+		//called with xmmlf (eXtensibe Message Markup Language Fragment)
 		//or an $XmlDoc jquery object
 		var $message = $("<div class='message bubble'/>");
 		
@@ -82,7 +82,7 @@
 		
 		return $message;
 	}
-
+	
 	$MessageRow = function($msg){
 		return $("<div class='message-row'/>").append($msg||$());
 	};
@@ -161,7 +161,7 @@
 			}
 		});
 		return xmml;
-	}		
+	}
 	function esc(str){
 		return str
 		.replace(/'/g,"&#39;")

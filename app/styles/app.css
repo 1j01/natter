@@ -1,5 +1,27 @@
 
+html,
+body,
+#app,
+.app {
+	display: flex;
+	/*height: 100%;*/
+	flex: 1;
+	flex-direction: column;
+}
+
 .sign-in-screen {
-	margin: 0 auto;
-	max-width: 70em;
+	/* margin: 0 auto; */
+	/* max-width: 70em; */
+	/* min-width: 70em; */
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.placeholder {
+	font-size: 3em;
+	color: gray;
+	opacity: 0.2;
+	padding: 1rem;
+	line-height: 1;
 }

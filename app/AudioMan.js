@@ -34,7 +34,7 @@ AudioMan.prototype.play = function(s){
 	for(var i=0; i<$pool.length; i++){
 		var audio = $pool[i];
 		//console.log(audio.canplay);
-		if(audio.canplay){//@TOSOish: make sure this doesn't stop it from ever playing any sounds
+		if(audio.canplay){ // @TODO: make sure this doesn't stop it from ever playing any sounds?
 			if(isPlaying(audio)){
 				continue;
 			}
