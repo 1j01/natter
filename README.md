@@ -4,14 +4,14 @@
 
 Features:
 
-* Full rich text editing
+* Full rich text editing, with emoji and images
 * [Avastars][]: the best default avatar images around, procedurally generated based on your username
 * Paste a link to automatically embed videos from YouTube, Vimeo, and other sites, audio from SoundCloud, and even code fiddles like CodePen and JSFiddle
 * Drag and drop anything anywhere, e.g. image to avatar, image/audio/video/other file to chat or to a user
 * Easily send feedback (via chat; but don't worry you won't have to "friend"/"unfriend" Feedback or anything)
 * Pick emoji from a dynamic interactive map with axes representing emotional factors, instead of just a grid
 * Upload custom emoji/gifs easily for personal use
-* Send hand-drawn messages
+* Send handwritten messages and hand-drawn pictures
 
 ### Status
 

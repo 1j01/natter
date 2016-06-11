@@ -1,0 +1,14 @@
+
+.message {
+	padding: 0.2rem;
+}
+
+.bubble {
+	display: inline-block;
+	background: rgba(255, 255, 255, 0.8);
+	color: #222;
+	border-radius: 0.4rem;
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	box-shadow: 1px 1px 0.3rem rgba(0, 0, 0, 0.2);
+	padding: 0.4rem;
+}

@@ -1,0 +1,30 @@
+
+body {
+	/*font-family: sans-serif;*/
+	padding: 1rem;
+	box-sizing: border-box;
+}
+
+h1 a:not(:hover) {
+	text-decoration: none;
+}
+
+li {
+	line-height: 1.5rem;
+	display: list-item;
+	list-style: disc;
+	margin-left: 1em;
+}
+
+footer {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	text-align: center;
+	padding: 1rem;
+	background: white;
+	color: black;
+}
+body {
+	padding-bottom: 5rem;
+}

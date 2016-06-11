@@ -7,21 +7,15 @@
 		<script src="lib/jquery-2.1.4.min.js"></script>
 		<script src="lib/coffee-script.js"></script>
 		<!-- TODO: use browserify? -->
-		<!-- <script src="../node_modules/react/react.js"></script> -->
-		<!-- <script src="../node_modules/react-dom/index.js"></script> -->
 		<script src="lib/react-v15.1.0.js"></script>
 		<script src="lib/react-dom-v15.1.0.js"></script>
 		<!-- FIXME: react-script shouldn't be published and loaded as CoffeeScript -->
 		<script src="../node_modules/react-script/react-script.coffee" type="text/coffeescript"></script>
 		
-		<!-- Material Design Lite -->
-		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-		<link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.indigo-pink.min.css">
-		<script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
-		
 		<!-- Utilities -->
 		<script type="text/coffeescript">@E = ReactScript</script>
 		<script src="AudioMan.js"></script>
+		<script src="lib/sha512.js"></script>
 		<script src="avastar.js"></script>
 		<script src="title-alert.js"></script>
 		
@@ -40,8 +34,16 @@
 		<!-- Konami Code + Icon Generator -->
 		<script src="kc.js" async></script>
 		
+		<!-- Styling -->
 		<link rel="stylesheet" href="lib/reset.css">
-		<link rel="stylesheet" href="app.css">
+		<link rel="stylesheet" href="styles/base.css">
+		<link rel="stylesheet" href="styles/messages.css">
+		<link rel="stylesheet" href="styles/app.css">
+		<!-- Material Design Lite -->
+		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+		<link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.indigo-pink.min.css">
+		<script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
+		
 	</head>
 	<body class="not-loaded not-logged-in">
 		<div id="app"></div>
