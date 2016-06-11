@@ -4,13 +4,15 @@
 		<meta charset="utf-8">
 		<title>Natter</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<script src="public/lib/jquery-2.1.4.min.js"></script>
-		<script src="public/lib/coffee-script.js"></script>
-		<!-- Konami Code + Icon Generator -->
-		<script src="kc.js" async></script>
+		<script src="app/lib/jquery-2.1.4.min.js"></script>
+		<script src="app/lib/coffee-script.js"></script>
 		
-		<link rel="stylesheet" href="public/lib/reset.css">
-		<link rel="stylesheet" href="public/app.css">
+		<!-- Konami Code + Icon Generator -->
+		<script src="app/AudioMan.js"></script>
+		<script src="app/kc.js" async></script>
+		
+		<link rel="stylesheet" href="app/lib/reset.css">
+		<link rel="stylesheet" href="app/app.css">
 		<style>
 			body {
 				font-family: sans-serif;
@@ -57,16 +59,15 @@
 		<ul>
 			<h2>Features:</h2>
 			<li>
-				<!-- TODO: should test/ even be in public/ (app/)? -->
-				<a href="public/test/avastar.html">Avastars</a>
+				<!-- TODO: should test/ really be in app/? -->
+				<a href="app/test/avastar.html">Avastars</a>
 			</li>
 			<li>
 				Other good stuff
 			</li>
 		</ul>
 		<p>
-			<!-- TODO: rename public/ to app/ -->
-			<a class="launch-app" href="public/">Launch the App</a>
+			<a class="launch-app" href="app/">Launch the App</a>
 		</p>
 		<footer>
 			Natter is <a href="https://wikipedia.org/wiki/Vacuous_truth" title="and I mean literally literally" target="_blank">LITERALLY</a>
