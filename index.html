@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Natter</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<script src="public/lib/jquery-2.1.4.min.js"></script>
+		<script src="public/lib/coffee-script.js"></script>
+		<!-- Konami Code + Icon Generator -->
+		<script src="kc.js" async></script>
+		
+		<link rel="stylesheet" href="public/lib/reset.css">
+		<link rel="stylesheet" href="public/app.css">
+		<style>
+			body {
+				font-family: sans-serif;
+			}
+			.launch-app {
+				background: #2196f3;
+				color: white;
+				padding: 0.5em 1em;
+				font-size: 1.3em;
+				border-radius: 5px;
+				text-decoration: none;
+			}
+			h1 {
+				font-size: 2em;
+				margin: 1rem;
+			}
+			h2 {
+				font-size: 1.2em;
+			}
+			p,
+			ul,
+			ol {
+				margin: 1rem;
+			}
+			a {
+				color: #2196f3;
+			}
+			a:not(:hover) {
+				text-decoration: none;
+			}
+			li {
+				line-height: 1.5rem;
+				display: list-item;
+				list-style: disc;
+				margin-left: 1em;
+			}
+		</style>
+	</head>
+	<body class="not-loaded not-logged-in">
+		<h1>Natter</h1>
+		<p>
+			Natter is a sweet chat app that's actually better than everything else.
+		</p>
+		<ul>
+			<h2>Features:</h2>
+			<li>
+				<!-- TODO: should test/ even be in public/ (app/)? -->
+				<a href="public/test/avastar.html">Avastars</a>
+			</li>
+			<li>
+				Other good stuff
+			</li>
+		</ul>
+		<p>
+			<!-- TODO: rename public/ to app/ -->
+			<a class="launch-app" href="public/">Launch the App</a>
+		</p>
+		<footer>
+			Natter is <a href="https://wikipedia.org/wiki/Vacuous_truth" title="and I mean literally literally" target="_blank">LITERALLY</a>
+			the world's BEST most AWESOME chat application<br class="misleading">
+			being made by <a href="http://isaiahodhner.ml/" target="_blank">Isaiah Odhner</a>
+			with <a href="https://www.firebase.com/" target="_blank">Firebase</a>
+			and <a href="http://coffeescript.org/" target="_blank">CoffeeScript</a>
+			and <a href="https://facebook.github.io/react/" target="_blank">React</a>
+			and <a href="https://github.com/1j01/react-script" target="_blank">ReactScript</a>.
+		</footer>
+		<div id="notifications"></div>
+	</body>
+</html>

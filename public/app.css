@@ -4,7 +4,7 @@
 	-ms-user-select: none;
 	user-select: none;
 }
-input, textarea, #login-error, footer, footer *, p {
+input, textarea, .login-screen-error, footer, footer *, p {
 	-webkit-user-select: text;
 	-moz-user-select: text;
 	-ms-user-select: text;
@@ -19,11 +19,12 @@ input, textarea, #login-error, footer, footer *, p {
 body {
 	width: 100%;
 	height: 100%;
-	background-color: yellow;
+	background-color: #222;
+	color: white;
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 /* Login/App screen transitions */
-#login, #app {
+.login-screen, .app {
 	position: fixed;
 	bottom: 0;
 	width: 100%;
@@ -32,7 +33,7 @@ body {
 	padding: 0;
 	margin: 0;
 }
-#login {
+.login-screen {
 	/*-webkit-transition: all 2s ease-in-out;
 	-moz-transition: all 2s ease-in-out;
 	-o-transition: all 2s ease-in-out;
@@ -42,21 +43,21 @@ body {
 	-o-transition: bottom 2s ease-in-out, opacity 2s ease, -o-transform 2s ease;
 	transition: bottom 2s ease-in-out, opacity 2s ease, transform 2s ease;
 }
-#app {
+.app {
 	-webkit-transition: all 0.8s ease-in-out;
 	-moz-transition: all 0.8s ease-in-out;
 	-o-transition: all 0.8s ease-in-out;
 	transition: all 0.8s ease-in-out;
 }
-.not-logged-in #app, 
-.server-down #app {
+.not-logged-in .app, 
+.server-down .app {
 	bottom: -100%;
 }
-.logged-in #login, 
-.server-down #login {
+.logged-in .login-screen, 
+.server-down .login-screen {
 	bottom: 200%;
 }
-.server-down #login {
+.server-down .login-screen {
 	opacity: 0;
 	-webkit-transform: rotate(-10deg);
 	-moz-transform: rotate(-10deg);
@@ -65,7 +66,7 @@ body {
 	transform: rotate(-10deg);
 }
 /* Big Messages */
-#bye, #server-down {
+.bye, .server-down {
 	font-size: 4em;
 	/* hide messages until they are needed */
 	display: none;
@@ -77,27 +78,27 @@ body {
 	position: absolute;
 	top: 50%;
 }
-#server-down {
+.server-down {
 	-webkit-transform: rotate(4deg);
 	-moz-transform: rotate(4deg);
 	-ms-transform: rotate(4deg);
 	-o-transform: rotate(4deg);
 	transform: rotate(4deg);
 }
-.server-down #server-down {
+.server-down .server-down {
 	display: block;
 }
-.logged-out #bye {
+.logged-out .bye {
 	display: block;
 }
-#disconnected {
+.disconnected {
 	pointer-events: none;
 	opacity: 0;
 	position: absolute;
 	width: 100%;
 	height: 100%;
 }
-.disconnected #disconnected {
+.disconnected .disconnected {
 	opacity: 1;
 	background: rgba(0,0,0,0.1);
 	box-shadow: 0 0 20px rgba(0,0,0,0.5) inset;
@@ -108,7 +109,7 @@ body {
 	vertical-align: middle;
 }
 /* Login / Create Account screen */
-#login {
+.login-screen {
 	background: #BF4040;
 	background: hsl(0,50%,50%);
 	color: white;
@@ -117,30 +118,30 @@ body {
 	vertical-align: middle;
 	text-align: center;
 }
-#login {
+.login-screen {
 	display: table-cell;
 	vertical-align: middle;
 	text-align: center;
 }
-#login > :first-child {
+.login-screen > :first-child {
 	margin-top: 40vh;
 }
-#login > * {
+.login-screen > * {
 	width: 15em;
 	box-sizing: border-box;
 }
-#login input[type="submit"] {
+.login-screen input[type="submit"] {
 	/*display: none;*/
 }
-#login * {
+.login-screen * {
 	padding: 5px;
 	margin: 5px;
 }
-#login h3 {
+.login-screen h3 {
 	color: white; /* unnecessary */
 	text-shadow: 0 0 5px black;
 }
-#login-message {
+.login-screen-message {
 	height: 1em;
 }
 input[type="text"],
@@ -205,24 +206,24 @@ footer {
 footer a {
 	color: #FF0;
 }
-#login a {
+.login-screen a {
 	color: #FF0;
 	opacity: 0.8;
 }
-#login a:hover {
+.login-screen a:hover {
 	opacity: 1;
 }
 /* Application screen */
-#app {
+.app {
 	background: hsl(180,50%,50%);
 	display: table;
 }
-#sidebar {
+.sidebar {
 	display: table-cell;
 	width: 300px;
 	background-color: hsla(180, 62%, 53%, 1);
 }
-#panels-area {
+.panels-area {
 	display: table-cell;
 	position: relative;
 	z-index: -1;

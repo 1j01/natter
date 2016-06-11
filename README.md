@@ -14,28 +14,20 @@ Features:
 
 ### Status
 
-It doesn't run anymore.
-To work again, it needs to be rewritten.
+*Defunct, revival imminent?*
 
-When it was working,
-it used a directory as a poor man's database,
-and it stored passwords with questionable cryptography.
-They were salted and hashed, but I'm not a cryptographer, and it was probably significantly flawed.
-
-Pretty much everything is to be refactored:
-* `db/` -> [MongoDB][] or [Redis][] (or some other database, maybe Firebase?)
-* `user.pash` ("password hash") -> [passwordless][] (or Firebase?)
-* JavaScript -> [CoffeeScript][] (or [some other language][]?)
+Everything is to be rewritten:
+* `db/`, `users/` -> [Firebase][]
+* JavaScript -> [CoffeeScript][] (or could try [some other language][])
 * [jQuery][] -> [React][]
-* `contenteditable` -> [Draft.js][]
+* `contentEditable` -> [Draft.js][] (which uses `contentEditable`, but sanely)
 
-However, [Avastars][] still work,
-and on the [main app screen][] there's a certain secret code
-you can enter that can result in several interesting outcomes.
+<!-- https://github.com/egoist/autoembed -->
+<!-- https://github.com/egoist/autolink.js -->
+<!-- https://www.npmjs.com/package/oembed-auto -->
+<!-- https://cleverbot.io/ -->
 
-[MongoDB]: https://www.mongodb.org/
-[Redis]: http://redis.io/
-[passwordless]: https://passwordless.net/
+[Firebase]: https://www.firebase.com/
 [CoffeeScript]: http://coffeescript.org/
 [some other language]: https://github.com/jashkenas/coffeescript/wiki/list-of-languages-that-compile-to-js
 [jQuery]: https://jquery.org/

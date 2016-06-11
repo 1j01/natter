@@ -1,12 +1,4 @@
 
-SERVER_URL = location.origin
-CONNECT_OPTIONS =
-	'reconnect': yes
-	'reconnection delay': 1000
-	'max reconnection attempts': 1000
-
-socket = io.connect(SERVER_URL, CONNECT_OPTIONS)
-
 $ ->
 	
 	$body = $("body")

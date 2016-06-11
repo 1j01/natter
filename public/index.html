@@ -4,19 +4,30 @@
 		<meta charset="utf-8">
 		<title>Natter</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<script src="/socket.io/socket.io.js"></script>
 		<script src="lib/jquery-2.1.4.min.js"></script>
-		<script src="lib/space-pen.js"></script>
 		<script src="lib/coffee-script.js"></script>
+		<!-- TODO: use browserify? -->
+		<!-- <script src="../node_modules/react/react.js"></script> -->
+		<!-- <script src="../node_modules/react-dom/index.js"></script> -->
+		<script src="lib/react-v15.1.0.js"></script>
+		<script src="lib/react-dom-v15.1.0.js"></script>
+		<!-- FIXME: react-script shouldn't be published and loaded as CoffeeScript -->
+		<script src="../node_modules/react-script/react-script.coffee" type="text/coffeescript"></script>
 		
 		<!-- Utilities -->
-		<script src="utils.js"></script>
-		<!-- Widgets -->
-		<script src="avastar.js"></script>
-		<script src="widgets.js"></script>
-		<script src="message.js"></script>
-		<!-- Client Main -->
-		<script src="client.coffee" type="text/coffeescript"></script>
+		<script type="text/coffeescript">@E = ReactScript</script>
+		<script src="AudioMan.js"></script>
+		<script src="title-alert.js"></script>
+		<!-- Components -->
+		<script src="components/Avastar.coffee" type="text/coffeescript"></script>
+		<script src="components/Panel.coffee" type="text/coffeescript"></script>
+		<script src="components/ChatPanel.coffee" type="text/coffeescript"></script>
+		<script src="components/Message.coffee" type="text/coffeescript"></script>
+		<script src="components/MessageInput.coffee" type="text/coffeescript"></script>
+		<script src="components/LoginScreen.coffee" type="text/coffeescript"></script>
+		<script src="components/App.coffee" type="text/coffeescript"></script>
+		<!-- App Main -->
+		<script src="app.coffee" type="text/coffeescript"></script>
 		<!-- Konami Code + Icon Generator -->
 		<script src="kc.js" async></script>
 		
@@ -24,18 +35,15 @@
 		<link rel="stylesheet" href="app.css">
 	</head>
 	<body class="not-loaded not-logged-in">
-		<form id="login" action="login" method="post">
-			<input id="email" placeholder="Email" name="email" type="text" autofocus/><br>
-			<input id="go" type="submit" value="Login / Create Account"/>
-			<div id="login-message"></div>
-		</form>
 		<div id="app"></div>
 		<footer>
-			This is <a href="https://wikipedia.org/wiki/Vacuous_truth" title="and I mean literally literally as well" target="_blank">LITERALLY</a>
+			Natter is <a href="https://wikipedia.org/wiki/Vacuous_truth" title="and I mean literally literally" target="_blank">LITERALLY</a>
 			the world's BEST most AWESOME chat application<br class="misleading">
 			being made by <a href="http://isaiahodhner.ml/" target="_blank">Isaiah Odhner</a>
-			with <a href="http://nodejs.org/" target="_blank">node.js</a>
-			and <a href="http://socket.io/" target="_blank">socket.io</a>.
+			with <a href="https://www.firebase.com/" target="_blank">Firebase</a>
+			and <a href="http://coffeescript.org/" target="_blank">CoffeeScript</a>
+			and <a href="https://facebook.github.io/react/" target="_blank">React</a>
+			and <a href="https://github.com/1j01/react-script" target="_blank">ReactScript</a>.
 		</footer>
 		<div id="notifications"></div>
 	</body>
