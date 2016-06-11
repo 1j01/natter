@@ -1,0 +1,12 @@
+
+.avatar {
+	border-radius: 50%;
+	overflow: hidden;
+	display: inline-block;
+}
+
+.user-profile {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}

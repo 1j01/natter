@@ -29,6 +29,7 @@
 		
 		<!-- Components -->
 		<script src="components/Avastar.coffee" type="text/coffeescript"></script>
+		<script src="components/Avatar.coffee" type="text/coffeescript"></script>
 		<script src="components/Panel.coffee" type="text/coffeescript"></script>
 		<script src="components/ChatPanel.coffee" type="text/coffeescript"></script>
 		<script src="components/Message.coffee" type="text/coffeescript"></script>
@@ -40,6 +41,7 @@
 		<link rel="stylesheet" href="lib/reset.css">
 		<link rel="stylesheet" href="styles/base.css">
 		<link rel="stylesheet" href="styles/messages.css">
+		<link rel="stylesheet" href="styles/users.css">
 		<!-- Material Design Lite -->
 		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 		<link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.indigo-pink.min.css">
@@ -101,14 +103,15 @@
 						E AvastarTest, defaultSeed: "Change me too!"
 					E "section",
 						E "h2", "User Profile (i.e. yours)"
-						E UserProfile, name: "John Doughburg"
-						E UserProfile, name: "Jessy Stormbringer"
-						E UserProfile, name: "Dick C. Dixie"
-						E UserProfile, name: "Katherine Outabag"
-						# these names are so dumb
-						# possibly hillariously so, but not in a clever way
-						# only in a Maryland flag sort of way
-						E UserProfile, name: "Maryland Flagpoint"
+						E "", style: display: "flex", flexDirection: "row", justifyContent: "space-around",
+							E UserProfile, user: displayName: "John Doughburg"
+							E UserProfile, user: displayName: "Jessy Stormbringer"
+							E UserProfile, user: displayName: "Dick C. Dixie"
+							E UserProfile, user: displayName: "Katherine Outabag"
+							# these names are so dumb
+							# possibly hillariously so, but not in a clever way
+							# only in a Maryland flag sort of way
+							E UserProfile, user: displayName: "Maryland Flagpoint"
 			), document.getElementById("components-page-container")
 			
 		</script>
