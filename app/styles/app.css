@@ -20,6 +20,20 @@ body,
 
 /* TODO: app screen transitions */
 
+/*.panel-tabs.mdl-tabs {
+	display: flex;
+	flex-direction: column;
+}*/
+.special-tabs,
+.user-tabs {
+	display: flex;
+	flex-direction: column;
+}
+.panel-tabs .panel-tab {
+	margin-bottom: 0.5rem;
+	margin-left: 1rem;
+}
+
 /* TODO: remove me */
 .placeholder {
 	font-size: 3em;

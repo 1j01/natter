@@ -16,6 +16,7 @@
 
 @signOut = ->
 	firebase.auth().signOut()
+	location.hash = ""
 
 do render = ->
 	ReactDOM.render (E App), document.getElementById("app")
