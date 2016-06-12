@@ -7,9 +7,20 @@ class @UserProfile extends React.Component
 			# TODO: click avatar to upload new profile image
 			E Avatar, name: user.displayName, url: user.photoURL
 			# TODO: edit user name
-			E ".user-name", user.displayName
-			# <div class="mdl-textfield mdl-js-textfield">
-			# 	<input class="mdl-textfield__input" type="text" id="user-name">
-			# 	<label class="mdl-textfield__label" for="user-name">Username</label>
-			# </div>
-			# TODO: sign out button
+			if setUsername?
+				E ".mdl-textfield.mdl-js-textfield", ref: "mdl-js-textfield",
+					E "input.textfield__input", type: "text", id: "username", value: user.displayName
+					E "label.textfield__label", for: "username", "Username"
+			else
+				E ".user-name", user.displayName
+			
+			# TODO: make sign out button less prominent?
+			E "button.mdl-button.mdl-js-button.mdl-button--raised",
+				ref: "mdl-js-button"
+				onClick: => signOut()
+				"Sign out"
+	
+	componentDidMount: ->
+		componentHandler.upgradeElement @refs["mdl-js-button"]
+		if @refs["mdl-js-textfield"]?
+			componentHandler.upgradeElement @refs["mdl-js-textfield"]

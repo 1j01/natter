@@ -14,5 +14,8 @@
 			else
 				console.error(error)
 
+@signOut = ->
+	firebase.auth().signOut()
+
 do render = ->
 	ReactDOM.render (E App), document.getElementById("app")
