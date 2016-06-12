@@ -1,15 +1,10 @@
 
-user = null
-
 @signIn = ->
 	provider = new firebase.auth.GoogleAuthProvider()
 	# provider.addScope("https://www.googleapis.com/auth/plus.login")
 	firebase.auth().signInWithPopup(provider)
 		.then (result)->
 			token = result.credential.accessToken
-			{user} = result
-			render()
-			console.log user, token
 		.catch (error)->
 			{email, credential, message, code} = error
 			if code is "auth/account-exists-with-different-credential"
@@ -20,5 +15,4 @@ user = null
 				console.error(error)
 
 do render = ->
-	ReactDOM.render (E App, {user}), document.getElementById("app")
-
+	ReactDOM.render (E App), document.getElementById("app")

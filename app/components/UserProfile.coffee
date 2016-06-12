@@ -12,3 +12,4 @@ class @UserProfile extends React.Component
 			# 	<input class="mdl-textfield__input" type="text" id="user-name">
 			# 	<label class="mdl-textfield__label" for="user-name">Username</label>
 			# </div>
+			# TODO: sign out button
