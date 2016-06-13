@@ -5,9 +5,11 @@
 	display: inline-block;
 }
 
-.user-profile {
-	padding: 1rem;
+.user {
 	display: flex;
-	flex-direction: column;
+	flex-direction: row;
 	align-items: center;
+}
+.username {
+	margin: 0 0.5rem;
 }
