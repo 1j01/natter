@@ -20,10 +20,12 @@ body,
 
 /* TODO: app screen transitions */
 
-/*.panel-tabs.mdl-tabs {
+.panel-tabs {
 	display: flex;
 	flex-direction: column;
-}*/
+	flex: 1;
+}
+
 .special-tabs,
 .user-tabs {
 	display: flex;

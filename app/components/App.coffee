@@ -20,20 +20,7 @@ class @App extends React.Component
 						E Spacer
 						E UserProfile, {user}
 					E Drawer,
-						# E PanelTabs, [user, user, displayName: "Eric Doughborg"]
-						# E ".user-tabs",
-						# 	E "a.panel-tab.mdl-button.mdl-js-button.mdl-button--raised"
-						# 	E "a.panel-tab.mdl-button.mdl-js-button.mdl-button--raised"
-						# E "a.panel-tab.feedback-panel-tab.mdl-button.mdl-js-button",
-						# 	"Send Feedback"
-						# E PanelTabs
-						E Navigation,
-							E "a",
-								E Contact, user: displayName: "Eric Doughborg"
-							E "a",
-								E Contact, user: displayName: "Hanz Darntruliest"
-							E ".placeholder",
-								"Tabs for users, settings, and feedback would go here"
+						E PanelTabs
 					E Content,
 						E ".placeholder",
 							"Panels would go here"

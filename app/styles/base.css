@@ -8,13 +8,6 @@ h1 a:not(:hover) {
 	text-decoration: none;
 }
 
-li {
-	line-height: 1.5rem;
-	display: list-item;
-	list-style: disc;
-	margin-left: 1.5em;
-}
-
 footer {
 	position: fixed;
 	bottom: 0;
