@@ -32,7 +32,13 @@
     "react-script": "^2.0.4"
   },
   "scripts": {
+    "browserify-react-mdl": "browserify -t coffeeify app/react-mdl.coffee -o app/lib/react-mdl.js",
     "start": "nw"
   },
-  "private": true
+  "private": true,
+  "devDependencies": {
+    "browserify": "^13.0.1",
+    "coffeeify": "^2.0.1",
+    "react-mdl": "^1.5.4"
+  }
 }
