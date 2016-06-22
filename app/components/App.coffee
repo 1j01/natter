@@ -1,5 +1,5 @@
 
-{Layout, Header, Spacer, Drawer, Navigation, Content} = ReactMDL
+{Layout, Header, Spacer, Drawer, Navigation, Content, ProgressBar} = ReactMDL
 
 class @App extends React.Component
 	constructor: ->
@@ -38,6 +38,6 @@ class @App extends React.Component
 							E ".welcome",
 								"Welcome to Natter"
 			else if loading
-				E ".loading"
+				E ProgressBar, indeterminite: yes
 			else
 				E SignInScreen

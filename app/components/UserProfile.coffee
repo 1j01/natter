@@ -1,4 +1,6 @@
 
+{Textfield, Button} = ReactMDL
+
 class @UserProfile extends React.Component
 	render: ->
 		{user} = @props
@@ -8,19 +10,13 @@ class @UserProfile extends React.Component
 			E Avatar, name: user.displayName, url: user.photoURL, size: 48
 			# TODO: edit user name
 			if setUsername?
-				E ".mdl-textfield.mdl-js-textfield", ref: "mdl-js-textfield",
-					E "input.textfield__input", type: "text", id: "username", value: user.displayName
-					E "label.textfield__label", for: "username", "Username"
+				E Textfield,
+					label: "Username"
+					value: user.displayName
+					onChange: (e)=> # TODO
 			else
 				E ".username", user.displayName
 			
-			# TODO: make sign out button less prominent?
-			E "button.mdl-button.mdl-js-button",
-				ref: "mdl-js-button"
+			E Button,
 				onClick: => signOut()
 				"Sign out"
-	
-	componentDidMount: ->
-		componentHandler.upgradeElement @refs["mdl-js-button"]
-		if @refs["mdl-js-textfield"]?
-			componentHandler.upgradeElement @refs["mdl-js-textfield"]
