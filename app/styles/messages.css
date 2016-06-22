@@ -12,3 +12,9 @@
 	box-shadow: 1px 1px 0.3rem rgba(0, 0, 0, 0.2);
 	padding: 0.4rem;
 }
+
+.bubble:focus {
+	outline: none;
+	border-color: rgb(33, 150, 243);
+	box-shadow: 1px 1px 0.3rem rgba(33, 150, 243, 0.5);
+}

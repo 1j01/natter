@@ -18,5 +18,12 @@
 	firebase.auth().signOut()
 	location.hash = ""
 
+contacts = [
+	{uid: "ds09fsg0709dfgd", displayName: "Eric Doughborg"}
+	{uid: "sdgf7098tjdfg89", displayName: "Hanz Darntruliest"}
+]
+
 do render = ->
-	ReactDOM.render (E App), document.getElementById("app")
+	ReactDOM.render (E App, {contacts}), document.getElementById("app")
+
+addEventListener "hashchange", render

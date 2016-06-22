@@ -1,4 +1,6 @@
 
 class @Panel extends React.Component
 	render: ->
-		E ".panel"
+		{hash, children} = @props
+		E ".panel",
+			children

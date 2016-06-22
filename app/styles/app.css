@@ -4,15 +4,11 @@ body,
 #app,
 .app {
 	display: flex;
-	/*height: 100%;*/
 	flex: 1;
 	flex-direction: column;
 }
 
 .sign-in-screen {
-	/* margin: 0 auto; */
-	/* max-width: 70em; */
-	/* min-width: 70em; */
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -36,11 +32,35 @@ body,
 	margin-left: 1rem;
 }
 
-/* TODO: remove me */
-.placeholder {
+/* TODO: something else? */
+.welcome {
 	font-size: 3em;
 	color: gray;
 	opacity: 0.2;
 	padding: 1rem;
 	line-height: 1;
+}
+
+/* */
+
+.mdl-layout__content {
+	height: 100%;
+}
+.chat-panel {
+	display: flex;
+	height: 100%;
+	flex-direction: column;
+}
+.chat-log {
+	flex: 1;
+	padding: 5px;
+}
+.message-input {
+	flex: 0 0 auto;
+	display: flex;
+	padding: 5px;
+	box-sizing: border-box;
+}
+.message-input input {
+	flex: 1;
 }

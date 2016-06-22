@@ -11,7 +11,12 @@ class @App extends React.Component
 				@setState {user, loading: no}
 	
 	render: ->
+		{contacts} = @props
 		{user, loading} = @state
+		
+		getContactByDisplayName = (displayName)->
+			for contact in contacts when contact.displayName is displayName
+				return contact
 		
 		E ".app",
 			if user?
@@ -20,10 +25,18 @@ class @App extends React.Component
 						E Spacer
 						E UserProfile, {user}
 					E Drawer,
-						E PanelTabs
+						E PanelTabs, {contacts}
 					E Content,
-						E ".placeholder",
-							"Panels would go here"
+						if location.hash
+							contact = getContactByDisplayName(location.hash.replace(/#/, ""))
+							if contact
+								E ChatPanel, user: contact
+							else
+								E ".error",
+									"That user no longer exists"
+						else
+							E ".welcome",
+								"Welcome to Natter"
 			else if loading
 				E ".loading"
 			else
