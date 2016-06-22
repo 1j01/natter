@@ -19,6 +19,19 @@ Design goals:
 * Deep user expressitivity: to communicate with others, the user needs to be able to communicate with the app
 * Simplicity: easy to get started, easy to use
 
+<!--
+### The Secret Hidden Section (omg)
+
+Notes (that could become tests):
+
+* When you type a message and refresh the page, it should be saved
+* When you double-click a message, it should edit the message
+* You should also be able to edit a message on mobile
+* You should be able to edit or delete messages from a context menu
+* When you drag and drop an image (or maybe video? if it can make gifs and crop in 3D), your avatar should get bigger to show it as a drop target
+
+-->
+
 ### Status
 
 The app has been defunct for a long time, but I've started remaking it.

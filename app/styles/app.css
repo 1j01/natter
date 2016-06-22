@@ -43,6 +43,12 @@ body,
 
 /* */
 
+.app .mdl-progress {
+	width: 100%;
+}
+
+/* */
+
 .mdl-layout__content {
 	height: 100%;
 }
@@ -53,14 +59,13 @@ body,
 }
 .chat-log {
 	flex: 1;
-	padding: 5px;
 }
 .message-input {
 	flex: 0 0 auto;
 	display: flex;
-	padding: 5px;
 	box-sizing: border-box;
 }
 .message-input input {
 	flex: 1;
+	font: inherit;
 }

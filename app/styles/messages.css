@@ -1,6 +1,7 @@
 
-.message {
-	padding: 0.2rem;
+.message,
+.message-input {
+	margin: 6px;
 }
 
 .bubble {

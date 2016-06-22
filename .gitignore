@@ -1,11 +1,5 @@
 
-temp/*
-build/*
+node_modules/
+*.log
 
-node_modules/*
-!node_modules/connect-directory/
-!node_modules/connect-extensionless/
-!node_modules/cleverbot/
-
-.password
-.secret
+security-rules.json

@@ -1,0 +1,32 @@
+
+isUser(uid) { auth != null && auth.uid == uid }
+isEitherUser(uid1, uid2) { auth != null && (auth.uid == uid1 || auth.uid == uid2) }
+
+path /v0/users/{uid} is User {
+	read() { auth != null }
+	write() { isUser(uid) }
+}
+
+path /v0/user-contacts/{uid} is Object {
+	read() { isUser(uid) }
+	write() { isUser(uid) }
+}
+
+path /v0/user-contacts/{uid}/{contact_uid} is UserContact {
+	read() { isEitherUser(uid, contact_uid) }
+	write() { isUser(uid) }
+}
+
+path /v0/user-contacts/{uid}/{contact_uid}/accepted {
+	read() { isEitherUser(uid, contact_uid) }
+	write() { isUser(contact_uid) || (isUser(uid) && !value) }
+}
+
+type UserContact {
+	accepted: Boolean
+}
+
+type User {
+	name: String
+	
+}

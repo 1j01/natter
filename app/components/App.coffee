@@ -3,16 +3,21 @@
 
 class @App extends React.Component
 	constructor: ->
-		@state = user: null, loading: yes
+		@state =
+			user: null # You sir!
+			fUser: null # Eff you, sir!
+			loadingAuthState: yes
 		
 		firebase.auth().onAuthStateChanged (user)=>
 			# timeout because otherwise any errors are swallowed thanks to Promises
 			setTimeout =>
-				@setState {user, loading: no}
+				{fRoot} = @props
+				fUser = if user then fRoot.child("users").child(user.uid)
+				@setState {user, fUser, loadingAuthState: no}
 	
 	render: ->
 		{contacts} = @props
-		{user, loading} = @state
+		{user, loadingAuthState} = @state
 		
 		getContactByDisplayName = (displayName)->
 			for contact in contacts when contact.displayName is displayName
@@ -28,16 +33,21 @@ class @App extends React.Component
 						E PanelTabs, {contacts}
 					E Content,
 						if location.hash
-							contact = getContactByDisplayName(location.hash.replace(/#/, ""))
+							contact_name = location.hash.replace(/#/, "")
+							contact = getContactByDisplayName(contact_name)
 							if contact
 								E ChatPanel, user: contact
 							else
 								E ".error",
 									"That user no longer exists"
+									# "Contact removed"
+									# "Invite #{contact_name}"
+									# "Add #{contact_name} as a contact"
+									# location.hash = ""
 						else
 							E ".welcome",
 								"Welcome to Natter"
-			else if loading
-				E ProgressBar, indeterminite: yes
+			else if loadingAuthState
+				E ProgressBar, indeterminate: yes
 			else
 				E SignInScreen
