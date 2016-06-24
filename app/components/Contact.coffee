@@ -1,7 +1,7 @@
 
 class @Contact extends React.Component
 	render: ->
-		{user} = @props
+		{name, photoURL} = @props
 		E ".contact.user",
-			E Avatar, name: user.displayName, url: user.photoURL, size: 48
-			E ".username", user.displayName
+			E Avatar, {name, photoURL}, size: 48
+			E ".username", name

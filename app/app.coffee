@@ -20,12 +20,7 @@
 
 fRoot = firebase.database().ref("v0")
 
-contacts = [
-	{uid: "ds09fsg0709dfgd", displayName: "Eric Doughborg"}
-	{uid: "sdgf7098tjdfg89", displayName: "Hanz Darntruliest"}
-]
-
 do render = ->
-	ReactDOM.render (E App, {contacts, fRoot}), document.getElementById("app")
+	ReactDOM.render (E App, {fRoot}), document.getElementById("app")
 
 addEventListener "hashchange", render

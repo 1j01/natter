@@ -32,12 +32,17 @@ body,
 	margin-left: 1rem;
 }
 
-/* TODO: something else? */
-.welcome {
+/* TODO: use MDL Textfield and remove me */
+.search {
+	margin: 5px;
+	padding: 5px;
+}
+
+/* TODO: something else? remove me? */
+.placeholder {
 	font-size: 3em;
-	color: gray;
-	opacity: 0.2;
-	padding: 1rem;
+	color: rgba(128, 128, 128, 0.2);
+	padding: 1.5rem;
 	line-height: 1;
 }
 

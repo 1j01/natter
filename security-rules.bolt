@@ -2,9 +2,13 @@
 isUser(uid) { auth != null && auth.uid == uid }
 isEitherUser(uid1, uid2) { auth != null && (auth.uid == uid1 || auth.uid == uid2) }
 
-path /v0/users/{uid} is User {
+path /v0/users {
 	read() { auth != null }
+}
+
+path /v0/users/{uid} is User {
 	write() { isUser(uid) }
+	validate() { newData.child("uid").val() == uid }
 }
 
 path /v0/user-contacts/{uid} is Object {
@@ -19,7 +23,12 @@ path /v0/user-contacts/{uid}/{contact_uid} is UserContact {
 
 path /v0/user-contacts/{uid}/{contact_uid}/accepted {
 	read() { isEitherUser(uid, contact_uid) }
-	write() { isUser(contact_uid) || (isUser(uid) && !value) }
+	write() { isUser(contact_uid) || (isUser(uid) && !newData.val()) }
+}
+
+path /v0/contact-requests/{contact_uid}/{from_uid} is Boolean {
+	read() { isEitherUser(from_uid, contact_uid) }
+	write() { (isUser(contact_uid) && newData.val()) || (isEitherUser(from_uid, contact_uid) && !newData.val()) }
 }
 
 type UserContact {
@@ -27,6 +36,7 @@ type UserContact {
 }
 
 type User {
+	uid: String
 	name: String
-	
+	photoURL: String | Null
 }
