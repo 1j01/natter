@@ -16,9 +16,7 @@ isObject = (obj)->
 class @App extends React.Component
 	constructor: ->
 		@state =
-			user: null # You sir!
-			# fUser: null # Eff you, sir!
-			# fContacts: null # I'll wear glasses instead.
+			user: null
 			contacts: []
 			users: {}
 			loadingAuthState: yes
@@ -35,54 +33,39 @@ class @App extends React.Component
 				fUsers = fRoot.child("users")
 				fUser = if user then fUsers.child(user.uid)
 				fContacts = if user then fRoot.child("user-contacts").child(user.uid)
-				# @setState {user, fUser, fContacts, loadingAuthState: no}
 				contacts = []
-				# fContacts.on "child_added", (snap)=>
-				# 	contacts.push(snap.val())
-				# 	console.log snap
-				
 				fUser?.on "value", (snapshot)=>
-					unless snapshot.val()
+					if snapshot.val()
+						@setState user: snapshot.val()
+					else
 						fUser.set
 							uid: user.uid
 							name: user.displayName ? ""
 							photoURL: user.photoURL
 				fUsers?.on "value", (snapshot)=>
-					# console.log snapshot#, snapshot.val()
-					users = snapshot.val()
-					@setState {users}
+					@setState users: snapshot.val()
 				fContacts?.on "value", (snapshot)=>
-					contacts = snapshotToArray(snapshot)
-					@setState {contacts}
+					@setState contacts: snapshotToArray(snapshot)
 				
 				@setState {user, contacts, loadingAuthState: no, fUser, fUsers, fContacts}
 	
 	render: ->
+		{signIn, signOut} = @props
 		{user, contacts, users, loadingAuthState} = @state
-		
-		# getContactByDisplayName = (displayName)->
-		# 	for contact in contacts when contact.displayName is displayName
-		# 		return contact
-		
-		# getContact = (uid)->
-		# 	for contact in contacts when contact.uid is uid
-		# 		return contact
-		
-		addContact = =>
-			
 		
 		E ".app",
 			if user?
+				{name, photoURL} = user
+				setUsername = null#->
 				E Layout, fixedHeader: yes, fixedDrawer: yes,
 					E Header, title: "Natter",
 						E Spacer
-						E UserProfile, {user}
+						E UserProfile, {name, photoURL, setUsername, signOut}
 					E Drawer,
-						E PanelTabs, {contacts, users, addContact}
+						E PanelTabs, {contacts, users}
 					E Content,
 						if location.hash
 							contact_uid = location.hash.replace(/#/, "")
-							# contact = getContact(contact_uid)
 							contact = users[contact_uid]
 							if contact
 								E ChatPanel, user: contact
@@ -99,4 +82,4 @@ class @App extends React.Component
 			else if loadingAuthState
 				E ProgressBar, indeterminate: yes
 			else
-				E SignInScreen
+				E SignInScreen, {signIn}

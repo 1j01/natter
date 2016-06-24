@@ -8,10 +8,12 @@ class @PanelTabs extends React.Component
 	constructor: ->
 		@state = search: ""
 	render: ->
-		{contacts, users, addContact} = @props
+		{contacts, users} = @props
 		{search} = @state
 		
 		# TODO: rank function as the only difference?
+		# or maybe contacts should already be an array of users
+		# and it should not only rank users but keep the matches
 		if search
 			rank = (user)->
 				names = user.name.split(" ")
@@ -27,13 +29,10 @@ class @PanelTabs extends React.Component
 			users_to_display.sort (a, b)->
 				rank(a) - rank(b)
 		else
-			# users_to_display = contacts
 			users_to_display =
 				user for uid, user of users when uid in contacts
 			users_to_display.sort (a, b)->
 				contacts.indexOf(a) - contacts.indexOf(b)
-		
-		# console.log {search, users, contacts, users_to_display}
 		
 		E ".panel-tabs",
 			# TODO: use Textfield
@@ -54,12 +53,8 @@ class @PanelTabs extends React.Component
 					# ideally display (only) the match that ranks it the highest
 					E PanelTab,
 						hash: user.uid
-						key: user.name
+						key: user.uid
 						E Contact, name: user.name, photoURL: user.photoURL
-			# E Button,
-			# 	onClick: =>
-			# 		addContact()
-			# 	"Add Contact"
 			E Spacer
 			E "a.panel-tab.feedback-panel-tab.mdl-button.mdl-js-button",
 				"Send Feedback"

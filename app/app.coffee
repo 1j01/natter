@@ -1,5 +1,5 @@
 
-@signIn = ->
+signIn = ->
 	provider = new firebase.auth.GoogleAuthProvider()
 	# provider.addScope("https://www.googleapis.com/auth/plus.login")
 	firebase.auth().signInWithPopup(provider)
@@ -14,13 +14,13 @@
 			else
 				console.error(error)
 
-@signOut = ->
+signOut = ->
 	firebase.auth().signOut()
 	location.hash = ""
 
 fRoot = firebase.database().ref("v0")
 
 do render = ->
-	ReactDOM.render (E App, {fRoot}), document.getElementById("app")
+	ReactDOM.render (E App, {fRoot, signIn, signOut}), document.getElementById("app")
 
 addEventListener "hashchange", render
