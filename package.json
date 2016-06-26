@@ -32,16 +32,15 @@
     "react-script": "^2.0.4"
   },
   "scripts": {
-    "browserify-react-mdl": "browserify -t coffeeify app/react-mdl.coffee -o app/lib/react-mdl.js",
+    "webpack-react-mdl": "webpack app/react-mdl.js app/lib/react-mdl.js",
     "compile-security-rules": "firebase-bolt security-rules.bolt -o security-rules.json",
     "start": "nw"
   },
   "private": true,
   "devDependencies": {
-    "browserify": "^13.0.1",
-    "coffeeify": "^2.0.1",
     "firebase-bolt": "^0.8.0",
     "firebase-tools": "^3.0.3",
-    "react-mdl": "^1.5.4"
+    "react-mdl": "^1.5.4",
+    "webpack": "^1.13.1"
   }
 }

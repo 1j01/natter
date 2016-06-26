@@ -32,10 +32,11 @@ body,
 	margin-left: 1rem;
 }
 
-/* TODO: use MDL Textfield and remove me */
+.mdl-layout__drawer .panel-tabs .mdl-navigation {
+	padding: 0;
+}
 .search {
-	margin: 5px;
-	padding: 5px;
+	margin: 8px;
 }
 
 /* TODO: something else? remove me? */

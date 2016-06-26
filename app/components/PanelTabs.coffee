@@ -47,18 +47,12 @@ class @PanelTabs extends React.Component
 				contacts.indexOf(a) - contacts.indexOf(b)
 		
 		E ".panel-tabs",
-			# TODO: use Textfield
-			# https://github.com/tleunen/react-mdl/issues/335
-			# E Textfield,
-			# 	label: "Search"
-			# 	value: ""
-			# 	onChange: (e)=>
-			E "input.search",
-				placeholder: "Find contacts"
-				value: search
-				onChange: (e)=>
-					@setState search: e.target.value
-			
+			E ".search",
+				E Textfield,
+					label: "Find contacts"
+					value: search
+					onChange: (e)=>
+						@setState search: e.target.value
 			E Navigation,
 				for user, index in users_to_display
 					match = matches?[index]
