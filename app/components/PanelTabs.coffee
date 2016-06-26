@@ -15,19 +15,31 @@ class @PanelTabs extends React.Component
 		# or maybe contacts should already be an array of users
 		# and it should not only rank users but keep the matches
 		if search
-			rank = (user)->
+			find_match = (user)->
 				names = user.name.split(" ")
+				name_index = 0
 				for name in names
-					if name.toLowerCase().indexOf(search.toLowerCase()) is 0
-						return 2
-				if user.name.toLowerCase().indexOf(search.toLowerCase()) > -1
-					return 1
-				return 0
-				
+					index = name.toLowerCase().indexOf(search.toLowerCase())
+					if index is 0
+						absolute_index = name_index + index
+						return {rank: 2, startIndex: absolute_index, endIndex: absolute_index + search.length}
+					name_index += name.length + 1
+				# (name_index = 0)
+				index = user.name.toLowerCase().indexOf(search.toLowerCase())
+				if index >= 0
+					return {rank: 1, startIndex: index, endIndex: index + search.length}
+				return {rank: 0}
+			
+			matches = []
+			for uid, user of users
+				match = find_match(user)
+				match.user = user
+				matches.push(match) if match.rank > 0
+			
+			matches.sort (a, b)->
+				match.rank - match.rank
 			users_to_display =
-				user for uid, user of users when rank(user) > 0
-			users_to_display.sort (a, b)->
-				rank(a) - rank(b)
+				match.user for user in matches
 		else
 			users_to_display =
 				user for uid, user of users when uid in contacts
@@ -48,13 +60,14 @@ class @PanelTabs extends React.Component
 					@setState search: e.target.value
 			
 			E Navigation,
-				for user in users_to_display
+				for user, index in users_to_display
+					match = matches?[index]
 					# TODO: highlight search matches
 					# ideally display (only) the match that ranks it the highest
 					E PanelTab,
 						hash: user.uid
 						key: user.uid
-						E Contact, name: user.name, photoURL: user.photoURL
+						E Contact, name: user.name, photoURL: user.photoURL, highlightStartIndex: match?.startIndex, highlightEndIndex: match?.endIndex
 			E Spacer
 			E "a.panel-tab.feedback-panel-tab.mdl-button.mdl-js-button",
 				"Send Feedback"
