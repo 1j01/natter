@@ -51,12 +51,15 @@ class @App extends React.Component
 	
 	render: ->
 		{signIn, signOut} = @props
-		{user, contacts, users, loadingAuthState} = @state
+		{user, contacts, users, fUser, loadingAuthState} = @state
 		
 		E ".app",
 			if user?
 				{name, photoURL} = user
-				setUsername = null#->
+				
+				setUsername = (username)->
+					fUser.child("name").set(username)
+				
 				E Layout, fixedHeader: yes, fixedDrawer: yes,
 					E Header, title: "Natter",
 						E Spacer
