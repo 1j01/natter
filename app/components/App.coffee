@@ -45,13 +45,22 @@ class @App extends React.Component
 				fUsers?.on "value", (snapshot)=>
 					@setState users: snapshot.val()
 				fContacts?.on "value", (snapshot)=>
-					@setState contacts: snapshotToArray(snapshot)
+					@setState contactIDs: snapshotToArray(snapshot)
 				
 				@setState {user, contacts, loadingAuthState: no, fUser, fUsers, fContacts}
 	
 	render: ->
 		{signIn, signOut} = @props
-		{user, contacts, users, fUser, loadingAuthState} = @state
+		{user, users, contactIDs, fUser, loadingAuthState} = @state
+		
+		# console.log users, contactIDs, contactIDs? and users?
+		
+		contacts =
+			if contactIDs? and users?
+				for contactID in contactIDs
+					users[contactID]
+			else
+				[]
 		
 		E ".app",
 			if user?

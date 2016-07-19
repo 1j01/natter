@@ -11,9 +11,6 @@ class @PanelTabs extends React.Component
 		{contacts, users} = @props
 		{search} = @state
 		
-		# TODO: rank function as the only difference?
-		# or maybe contacts should already be an array of users
-		# and it should not only rank users but keep the matches
 		if search
 			find_match = (user)->
 				names = user.name.split(" ")
@@ -24,7 +21,6 @@ class @PanelTabs extends React.Component
 						absolute_index = name_index + index
 						return {rank: 2, startIndex: absolute_index, endIndex: absolute_index + search.length}
 					name_index += name.length + 1
-				# (name_index = 0)
 				index = user.name.toLowerCase().indexOf(search.toLowerCase())
 				if index >= 0
 					return {rank: 1, startIndex: index, endIndex: index + search.length}
@@ -34,17 +30,15 @@ class @PanelTabs extends React.Component
 			for uid, user of users
 				match = find_match(user)
 				match.user = user
+				# console.log match
 				matches.push(match) if match.rank > 0
 			
 			matches.sort (a, b)->
-				match.rank - match.rank
+				b.rank - a.rank
 			users_to_display =
-				match.user for user in matches
+				match.user for match in matches
 		else
-			users_to_display =
-				user for uid, user of users when uid in contacts
-			users_to_display.sort (a, b)->
-				contacts.indexOf(a) - contacts.indexOf(b)
+			users_to_display = contacts
 		
 		E ".panel-tabs",
 			E ".search",
@@ -56,8 +50,7 @@ class @PanelTabs extends React.Component
 			E Navigation,
 				for user, index in users_to_display
 					match = matches?[index]
-					# TODO: highlight search matches
-					# ideally display (only) the match that ranks it the highest
+					# console.log user, index, match
 					E PanelTab,
 						hash: user.uid
 						key: user.uid
