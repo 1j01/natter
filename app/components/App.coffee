@@ -53,8 +53,6 @@ class @App extends React.Component
 		{signIn, signOut} = @props
 		{user, users, contactIDs, fUser, loadingAuthState} = @state
 		
-		# console.log users, contactIDs, contactIDs? and users?
-		
 		contacts =
 			if contactIDs? and users?
 				for contactID in contactIDs

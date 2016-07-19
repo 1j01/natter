@@ -29,10 +29,9 @@
     "coffee-script": "^1.10.0",
     "react": "^15.1.0",
     "react-dom": "^15.1.0",
-    "react-script": "^2.0.4"
+    "react-script": "^2.0.5"
   },
   "scripts": {
-    "postinstall": "cp node_modules/react-mdl/out/ReactMDL.js app/lib/react-mdl.js",
     "compile-security-rules": "firebase-bolt security-rules.bolt -o security-rules.json",
     "start": "nw"
   },
@@ -40,6 +39,6 @@
   "devDependencies": {
     "firebase-bolt": "^0.8.0",
     "firebase-tools": "^3.0.3",
-    "react-mdl": "^1.5.4"
+    "react-mdl": "^1.6.1"
   }
 }

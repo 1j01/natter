@@ -30,7 +30,6 @@ class @PanelTabs extends React.Component
 			for uid, user of users
 				match = find_match(user)
 				match.user = user
-				# console.log match
 				matches.push(match) if match.rank > 0
 			
 			matches.sort (a, b)->
@@ -50,7 +49,6 @@ class @PanelTabs extends React.Component
 			E Navigation,
 				for user, index in users_to_display
 					match = matches?[index]
-					# console.log user, index, match
 					E PanelTab,
 						hash: user.uid
 						key: user.uid

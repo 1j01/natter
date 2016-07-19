@@ -1,12 +1,3 @@
-# # Here we store each child
-# titleChildren = []
-# segments.forEach (segment, i)=>
-#     # Here we add the first segment
-#     titleChildren.push E "span.segment", segment
-#     # If last segment then don't add the highlight part
-#     return if segments.length is i + 1
-#     # Here we add the highlighted part
-#     titleChildren.push E "span.segment.highlight", replacements[i]
 
 class @HighlightRange extends React.Component
     render: ->
