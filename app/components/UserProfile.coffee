@@ -14,7 +14,7 @@ class @UserProfile extends React.Component
 				# TODO: auto-sizing input
 				E Textfield,
 					label: "Username"
-					value: name
+					value: name ? ""
 					onChange: (e)=>
 						setUsername(e.target.value)
 			else
