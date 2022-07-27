@@ -39,6 +39,6 @@
   "devDependencies": {
     "firebase-bolt": "^0.8.0",
     "firebase-tools": "^3.0.3",
-    "react-mdl": "^1.6.1"
+    "react-mdl": "^2.1.0"
   }
 }
