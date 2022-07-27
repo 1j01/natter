@@ -65,16 +65,17 @@
 		var mx = 0;
 		var my = 0;
 		var srcs = [
-			"http://i1104.photobucket.com/albums/h329/zorq1/bth_Spinning-asteroid-1.gif",
-			//"http://i1104.photobucket.com/albums/h329/zorq1/bth_Spinning-asteroid-2.gif",
-			"http://i1104.photobucket.com/albums/h329/zorq1/bth_Spinning-asteroid-3.gif",
-			"http://i1104.photobucket.com/albums/h329/zorq1/bth_Spinning-asteroid-4.gif",
-			"http://i1104.photobucket.com/albums/h329/zorq1/bth_Spinning-asteroid-5.gif",
-			"http://i1104.photobucket.com/albums/h329/zorq1/bth_Spinning-asteroid-6.gif",
-			"http://i1104.photobucket.com/albums/h329/zorq1/bth_Spinning-asteroid-7.gif",
-			"http://i1104.photobucket.com/albums/h329/zorq1/bth_Spinning-asteroid-8.gif",
-			"http://i1104.photobucket.com/albums/h329/zorq1/bth_Spinning-asteroid-9.gif",
-			"http://webtools.gieskes.nl/pages/images/explosion.gif"
+			// dead links
+			// "http://i1104.photobucket.com/albums/h329/zorq1/bth_Spinning-asteroid-1.gif",
+			// //"http://i1104.photobucket.com/albums/h329/zorq1/bth_Spinning-asteroid-2.gif",
+			// "http://i1104.photobucket.com/albums/h329/zorq1/bth_Spinning-asteroid-3.gif",
+			// "http://i1104.photobucket.com/albums/h329/zorq1/bth_Spinning-asteroid-4.gif",
+			// "http://i1104.photobucket.com/albums/h329/zorq1/bth_Spinning-asteroid-5.gif",
+			// "http://i1104.photobucket.com/albums/h329/zorq1/bth_Spinning-asteroid-6.gif",
+			// "http://i1104.photobucket.com/albums/h329/zorq1/bth_Spinning-asteroid-7.gif",
+			// "http://i1104.photobucket.com/albums/h329/zorq1/bth_Spinning-asteroid-8.gif",
+			// "http://i1104.photobucket.com/albums/h329/zorq1/bth_Spinning-asteroid-9.gif",
+			"https://web.archive.org/web/20070222062310/http://webtools.gieskes.nl/pages/images/explosion.gif"
 		];
 		for(var i=0; i<50; i++){
 			(function(i){

@@ -21,9 +21,9 @@
   "author": {
     "name": "Isaiah Odhner",
     "email": "isaiahodhner@gmail.com",
-    "url": "http://isaiahodhner.ml/"
+    "url": "https://isaiahodhner.io/"
   },
-  "homepage": "http://natter.ml/",
+  "homepage": "https://natter.ml/",
   "repository": "1j01/natter",
   "dependencies": {
     "coffee-script": "^1.10.0",
