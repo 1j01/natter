@@ -21,6 +21,7 @@ signOut = ->
 fRoot = firebase.database().ref("v0")
 
 do render = ->
-	ReactDOM.render (E App, {fRoot, signIn, signOut}), document.getElementById("app")
+	root = ReactDOM.createRoot(document.getElementById("app"))
+	root.render (E App, {fRoot, signIn, signOut})
 
 addEventListener "hashchange", render

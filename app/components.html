@@ -81,8 +81,8 @@
 			
 		</script>
 		<script type="text/coffeescript">
-			
-			ReactDOM.render (
+			root = ReactDOM.createRoot(document.getElementById("components-page-container"))
+			root.render (
 				E ".components-page",
 					E "h1",
 						E "a", href: "..", "Natter"
@@ -114,7 +114,7 @@
 							# possibly hilariously so, but not in a clever way
 							# only in a Maryland flag sort of way
 							E UserProfile, name: "Maryland Flagpoint"
-			), document.getElementById("components-page-container")
+			)
 			
 		</script>
 	</body>
